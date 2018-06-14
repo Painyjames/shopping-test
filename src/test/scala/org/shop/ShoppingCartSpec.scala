@@ -18,5 +18,11 @@ class ShoppingCartSpec extends WordSpecLike
 
       shoppingCart.totalCost shouldBe expectedCost
     }
+    "have to consider the possibility that the input might be a list of strings" in {
+      val fruits = Seq("apple", "apple", "orange", "apple")
+      val shoppingCart = ShoppingCart(fruits)
+
+      shoppingCart.fruits should contain theSameElementsAs Seq(Apple, Apple, Orange, Apple)
+    }
   }
 }
