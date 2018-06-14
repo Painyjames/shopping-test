@@ -13,4 +13,13 @@ package object shop {
     lazy val totalCost: BigDecimal =
       fruits.foldLeft(BigDecimal(0))(_ + _.cost)
   }
+
+  sealed trait Offer { def applyTo(cost: BigDecimal, fruits: Seq[Fruit]): BigDecimal }
+  final case class FruitAmountOffer(fruit: Fruit, offerAmount: Int) extends Offer {
+    def applyTo(cost: BigDecimal, fruits: Seq[Fruit]): BigDecimal = {
+      val timesToApplyDiscount = fruits.count(_ == fruit) / offerAmount
+      val discount = timesToApplyDiscount * fruit.cost
+      cost - discount
+    }
+  }
 }
