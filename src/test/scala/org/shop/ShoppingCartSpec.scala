@@ -11,5 +11,12 @@ class ShoppingCartSpec extends WordSpecLike
 
       shoppingCart.fruits should contain theSameElementsAs Seq(Apple, Apple, Orange, Apple)
     }
+    "outputs the expected total cost" in {
+      val fruits = Seq(Apple, Apple, Orange, Apple)
+      val shoppingCart = ShoppingCart(fruits)
+      val expectedCost = 2.05
+
+      shoppingCart.totalCost shouldBe expectedCost
+    }
   }
 }
