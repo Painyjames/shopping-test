@@ -22,4 +22,10 @@ package object shop {
       cost - discount
     }
   }
+
+  final case class Checkout(shoppingCart: ShoppingCart, offers: Seq[Offer]) {
+    lazy val cost = {
+      offers.foldRight(shoppingCart.totalCost)(_.applyTo(_, shoppingCart.fruits))
+    }
+  }
 }
