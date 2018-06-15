@@ -12,6 +12,6 @@ the total cost
 candidates take a list of strings as input
 ## Step 2: Simple offers
 - The shop decides to introduce two new offers
-○ buy one, get one free on Apples
-○ 3 for the price of 2 on Oranges
+    - buy one, get one free on Apples
+    - 3 for the price of 2 on Oranges
 - Update your checkout functions accordingly
